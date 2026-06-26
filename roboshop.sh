@@ -23,5 +23,22 @@ do
     fi
      echo "$instance IP address: $IP"
 
-
+      # shellcheck disable=SC1009
+      aws route53 change-resource-record-sets \
+    --hosted-zone-id $ZONE_ID \
+    --change-batch '
+    {
+        "Comment": "Creating or Updating a record set for cognito endpoint"
+        ,"Changes": [{
+        "Action"              : "UPSERT"
+        ,"ResourceRecordSet"  : {
+            "Name"              : "'$instance'.'$DOMAIN_NAME"
+            ,"Type"             : "A"
+            ,"TTL"              : 1
+            ,"ResourceRecords"  : [{
+                "Value"         : "'$IP'"
+            }]
+        }
+        }]
+    }'
 done
