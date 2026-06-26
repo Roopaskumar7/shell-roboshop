@@ -3,7 +3,7 @@
 # shellcheck disable=SC2034
 AMI_ID="ami-0220d79f3f480ecf5"
 SG_ID="sg-0222f350150ea711b"
-INSTANCES=("mongob" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "Shipping" "payment" "dispatch" "frontend")
+INSTANCES=("mongob" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "Shipping" "payment" "dispatch" "frontend") 
 ZONE_ID="Z0946757NTIK8E1MS5MG"
 DOMAIN_NAME="roopaskumar.online"
 
